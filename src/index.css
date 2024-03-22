@@ -1,0 +1,306 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+
+/* Sayfa stilleri */
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+header div{
+  display: flex;
+  align-items: center;
+  font-size: 21px;
+  gap: 20px;
+  cursor: pointer;
+}
+
+header img{
+  height: 50px;
+}
+
+header p{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.view-buttons{
+  display: flex;
+  justify-content: center;
+}
+
+.view-buttons button:first-child{
+  border-radius: 6px 0 0 6px;
+}
+.view-buttons button:last-child{
+  border-radius: 0 6px 6px 0;
+}
+
+.leaflet-container{
+  height: 80vh;
+  margin-top: 30px;
+}
+
+.active{
+  background: #55b8ff;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup span{
+  text-align: center;
+  margin: 5px 0 10px;
+}
+
+/* modal */
+.detail-outher{
+  position: fixed;
+  z-index: 99999;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+
+}
+
+.detail-inner{
+  background: black;
+  margin-left: 10px;
+  height: 100%;
+  width: 200px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 2px 2px 20px #55b8ff;
+}
+
+@media (max-width: 650px){
+  .detail-outher{
+    width: 100%;
+  }
+
+  .detail-inner{
+    width: 90%;
+    height: 100%;
+    margin-left: 0px;
+    border-radius: 0px;
+  }
+}
+
+.close-area{
+  background: #55b8ff;
+  display: flex;
+  justify-content: end;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 10px;
+}
+
+.close-are span{
+  cursor: pointer;
+}
+
+.detail-inner p {
+  display: flex;
+  gap: 10px;
+}
+
+.detail-inner p span:last-child{
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+
+
+.detail-inner p:last-child{
+  padding: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  
+ 
+}
+
+.red{
+  background-color: red;
+}
+
+.yellow{
+  background: rgba(255, 255, 0, 0.699);
+}
+
+.green{
+  background: green;
+}
+
+/* yükleniyor  */
+.wrapper{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.loader {
+  width: 6em;
+  height: 6em;
+  font-size: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader .face {
+  position: absolute;
+  border-radius: 50%;
+  border-style: solid;
+  animation: animate023845 3s linear infinite;
+}
+
+.loader .face:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  color: gold;
+  border-color: currentColor transparent transparent currentColor;
+  border-width: 0.2em 0.2em 0em 0em;
+  --deg: -45deg;
+  animation-direction: normal;
+}
+
+.loader .face:nth-child(2) {
+  width: 70%;
+  height: 70%;
+  color: lime;
+  border-color: currentColor currentColor transparent transparent;
+  border-width: 0.2em 0em 0em 0.2em;
+  --deg: -135deg;
+  animation-direction: reverse;
+}
+
+.loader .face .circle {
+  position: absolute;
+  width: 50%;
+  height: 0.1em;
+  top: 50%;
+  left: 50%;
+  background-color: transparent;
+  transform: rotate(var(--deg));
+  transform-origin: left;
+}
+
+.loader .face .circle::before {
+  position: absolute;
+  top: -0.5em;
+  right: -0.5em;
+  content: '';
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 2em,
+                0 0 4em,
+                0 0 6em,
+                0 0 8em,
+                0 0 10em,
+                0 0 0 0.5em rgba(255, 255, 0, 0.1);
+}
+
+@keyframes animate023845 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* pagination (sayfalama) */
+.pagination{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  white-space: nowrap;
+}
+
+.pagination a{
+  padding: 5px;
+}
+
+.pagination .selected{
+  border-radius: 6px;
+  background-color: #55b8ff;
+}
+
